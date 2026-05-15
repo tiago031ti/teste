@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::table('pedidos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id");
+            $table->dateTime('data_pedido');
+            $table->string('status');
             $table->timestamps();
         });
     }
